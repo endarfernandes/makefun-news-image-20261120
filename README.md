@@ -1,11 +1,11 @@
 # THE WORLD IN ONE DAY — Friday 20 November 2026
 
-A one-page international news front page for the make.fun
+A one-page international newspaper front page for the make.fun
 `news-image-20261120` bounty: 33 verified stories from Friday 20 November
-2026 — 3 illustrated leads, 10 illustrated secondaries, a numbered world
-map, a 6-cell numbers strip, region tabs, a 20-story "Also on" tail, and a
-red DATE CHECK footer naming the stories deliberately excluded as other
-days' news.
+2026 — 3 illustrated leads, 10 illustrated secondaries, a numbered
+geopolitical night map with gold arcs linking the day's connected events,
+a 6-cell "By the Numbers" data strip, region tabs, and a 20-story
+"Also on" tail, with a red DATE CHECK footer.
 
 ![The World in One Day — 20 November 2026](entry.png)
 
@@ -34,16 +34,18 @@ days' news.
 
 Plus secondaries (Iraq/Kataib Hezbollah, Qeshm blast explained as munitions
 disposal, Vance ducks the Iran question, Angola buys into De Beers, France
-seeks a UNSC meeting) and 20 one-line briefs — see `research/BRIEFS.md` for
-every brief with its source.
+seeks a UNSC meeting) and 20 one-line briefs — see the build workspace's
+`research/BRIEFS.md` for every brief with its source.
 
 ## How it is built
 
-- `render.py` — the build-time renderer (Python 3 + Pillow + Liberation
-  fonts, all free and offline). Draws the whole page in code: masthead,
-  illustrations, world map (hand-plotted continent outlines), pins, strip,
-  tail, footer. Deterministic: re-running it produces byte-identical output.
-- `entry.png` — the rendered 1024×1024 front page (183,373 bytes).
+- `render.py` — the build-time renderer (Python 3 + Pillow + system fonts,
+  all free and offline). Draws the whole page in code: navy masthead,
+  Noto Serif Display headlines, full-colour lead illustrations, the night
+  world map with gold event arcs, data strip, secondaries, brief tail,
+  DATE CHECK footer. Deterministic: re-running it produces byte-identical
+  output.
+- `entry.png` — the rendered 1024×1024 front page (193,226 bytes).
 - `main.py` — the grading entrypoint (pure stdlib): copies `entry.png` to
   `$MAKEFUN_OUTPUT_DIR/entry.png`. This is the simplest entry shape the
   competition rules explicitly allow ("a repository holding the image and a
@@ -51,16 +53,18 @@ every brief with its source.
 
 ## Reproduce
 
-```sh
+```
 python3 render.py        # regenerates entry.png (byte-identical)
 python3 main.py /tmp/out # copies it to /tmp/out/entry.png
 sha256sum entry.png
-# 0c3fe74f6f00c15360d366d1cc38f0dbf9d8385cea81dcd0a28a1125c7fa3b3f
+# cbeb4f88ab91e01f8c21cc1eda6405973d6a35e011959b308330d70548b88b6b
 ```
 
-Verified 21 Nov 2026: PNG 1024×1024, 183,373 bytes (< 1 MiB), two
-consecutive `render.py` runs byte-identical (SHA-256 above), `main.py`
-copies byte-identically to a fresh output directory.
+Verified 21 Nov 2026: PNG 1024×1024, 193,226 bytes (< 1 MiB), two
+consecutive `render.py` runs byte-identical (SHA-256 above), `main.py` copies
+byte-identically to a fresh output directory. v1 of this entry (dense
+dashboard style, SHA `0c3fe74f…`) is backed up in the build workspace as
+`entry-v1.png`; v2 is a full visual redesign with identical facts.
 
 ## Sources
 
