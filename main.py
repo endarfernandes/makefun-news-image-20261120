@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-"""Grading entrypoint for news-image-20261120.
+"""Grading entrypoint for news-image-20261120 (V4 FINAL R3 — reference-layout
+rebuild, edition Friday, November 20, 2026; 1 hero + 8 supporting = 9 stories).
 
-Copies the pre-rendered front page (entry.png, produced by render.py) to the
-grader's output directory. Pure standard library, no network, deterministic:
-the copied file is byte-identical to entry.png in this repository.
+Copies the pre-rendered magazine cover (entry.png, produced by render.py)
+to the grader's output directory. Pure standard library, no network,
+deterministic: the copied file is byte-identical to entry.png in this
+directory.
 
-Reproduce the image: python3 render.py  (needs Pillow + Liberation fonts,
-both free; see README.md). The entrypoint itself needs nothing but Python 3.
+Reproduce the image: python3 render.py  (needs Pillow + the bundled
+Inter font in fonts/; see README.md). The entrypoint itself needs
+nothing but Python 3.
 """
 import os
 import shutil
